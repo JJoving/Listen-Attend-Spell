@@ -2,10 +2,13 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import sys
+import codecs
 
 from attention import DotProductAttention
 from utils import IGNORE_ID, pad_list
 
+sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
 
 class Decoder(nn.Module):
     """

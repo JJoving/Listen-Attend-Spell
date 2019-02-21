@@ -4,6 +4,9 @@
 
 import sys
 import argparse
+import codecs
+
+sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

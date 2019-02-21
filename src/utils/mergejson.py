@@ -18,7 +18,7 @@ if __name__ == '__main__':
     parser.add_argument('--verbose', '-V', default=0, type=int,
                         help='Verbose option')
     args = parser.parse_args()
-    
+
     # logging info
     if args.verbose > 0:
         logging.basicConfig(
@@ -41,7 +41,7 @@ if __name__ == '__main__':
             intersec_ks = set(ks)
         js.append(j)
     logging.info('new json has ' + str(len(intersec_ks)) + ' utterances')
-        
+
     old_dic = dict()
     for k in intersec_ks:
         v = js[0]['utts'][k]
@@ -69,7 +69,7 @@ if __name__ == '__main__':
 
         new_dic[id] = {unicode('input', 'utf-8'):[in_dic], unicode('output', 'utf-8'):[out_dic],
             unicode('utt2spk', 'utf-8'):dic[unicode('utt2spk', 'utf-8')]}
-    
+
     # ensure "ensure_ascii=False", which is a bug
     jsonstring = json.dumps({'utts': new_dic}, indent=4, ensure_ascii=False, sort_keys=True).encode('utf_8')
     print(jsonstring)

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # -- IMPORTANT
-data=/home/work_nfs/common/data # Modify to your aishell data path
-stage=-1  # Modify to control start from witch stage
+data=/export/data/asr-data/OpenSLR/33 # Modify to your aishell data path
+stage=4  # Modify to control start from witch stage
 # --
 
 ngpu=1         # number of gpus ("0" uses cpu, otherwise use gpu)
@@ -33,7 +33,7 @@ epochs=20
 half_lr=1
 early_stop=0
 max_norm=5
-batch_size=32
+batch_size=48
 maxlen_in=800
 maxlen_out=150
 # optimizer
@@ -114,7 +114,7 @@ if [ $stage -le 2 ]; then
     echo "<sos> 1" >> ${dict}
     echo "<eos> 2" >> ${dict}
     text2token.py -s 1 -n 1 -l ${nlsyms} data/train/text | cut -f 2- -d" " | tr " " "\n" \
-    | sort | uniq | grep -v -e '^\s*$' | awk '{print $0 " " NR+2}' >> ${dict}
+    | sort | uniq | grep -a -v -e '^\s*$' | awk '{print $0 " " NR+2}' >> ${dict}
     wc -l ${dict}
 
     echo "make json files"

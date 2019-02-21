@@ -46,7 +46,7 @@ else
     text2token.py -s 1 -n 1 ${dir}/text > ${tmpdir}/token.scp
 fi
 cat ${tmpdir}/token.scp | utils/sym2int.pl --map-oov ${oov} -f 2- ${dic} > ${tmpdir}/tokenid.scp
-cat ${tmpdir}/tokenid.scp | awk '{print $1 " " NF-1}' > ${tmpdir}/olen.scp 
+cat ${tmpdir}/tokenid.scp | awk '{print $1 " " NF-1}' > ${tmpdir}/olen.scp
 # +1 comes from 0-based dictionary
 vocsize=`tail -n 1 ${dic} | awk '{print $2}'`
 odim=`echo "$vocsize + 1" | bc`

@@ -1,5 +1,6 @@
 MAIN_ROOT=$PWD/../..
-KALDI_ROOT=$MAIN_ROOT/tools/kaldi
+#KALDI_ROOT=$MAIN_ROOT/tools/kaldi
+KALDI_ROOT=/export/maryland/jjchen/kaldi
 SRC_ROOT=$MAIN_ROOT/src
 
 # BEGIN from kaldi path.sh

@@ -3,7 +3,7 @@ A PyTorch implementation of Listen, Attend and Spell (LAS) [1], an end-to-end au
 
 ## Install
 - Python3 (Recommend Anaconda)
-- PyTorch 0.4.1+
+- PyTorch 0.4.1
 - [Kaldi](https://github.com/kaldi-asr/kaldi) (Just for feature extraction)
 - `pip install -r requirements.txt`
 - `cd tools; make KALDI=/path/to/kaldi`
